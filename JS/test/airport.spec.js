@@ -36,26 +36,24 @@ describe('My Test', () => {
         let transportMilitaryPlanes = airport.getTransportMilitaryPlanes();
         let flag = false;
         for (let militaryPlane of transportMilitaryPlanes) {
-            if (militaryPlane.getMilitaryType() === MilitaryType.TYPE_TRANSPORT) {
+            if (militaryPlane.getMilitaryType() === MilitaryType.TRANSPORT) {
                 flag = true;
                 break;
             }
         }
-        assert.equal(flag,true);
+        assert.isTrue(flag);
     });
 
     it('should check passenger plane with max capacity', () => {
         let airport = new Airport(planes);
         let expectedPlaneWithMaxPassengersCapacity = airport.getPassengerPlaneWithMaxPassengersCapacity();
-        assert.isFalse( expectedPlaneWithMaxPassengersCapacity == planeWithMaxPassengerCapacity);
+        assert.isTrue(expectedPlaneWithMaxPassengersCapacity.passengersCapacity === planeWithMaxPassengerCapacity.passengersCapacity);
     });
 
 
-    it('test 3', () => {
-        console.log("TEST testGetPassengerPlaneWithMaxCapacity started!");
+    it('should be sorted by Max load Capasity ASC', () => {
         let airport = new Airport(planes);
-        airport.sortByMaxLoadCapacity();
-        let planesSortedByMaxLoadCapacity = airport.getPlanes();
+        let planesSortedByMaxLoadCapacity = airport.sortByMaxLoadCapacity().getPlanes();
         let nextPlaneMaxLoadCapacityIsHigherThanCurrent = true;
         for (let i = 0; i < planesSortedByMaxLoadCapacity.length - 1; i++) {
             let currentPlane = planesSortedByMaxLoadCapacity[i];
@@ -68,37 +66,30 @@ describe('My Test', () => {
         assert.isTrue(nextPlaneMaxLoadCapacityIsHigherThanCurrent);
     })
 
-    it('testHasAtLeastOneBomberInMilitaryPlanes', () => {
+    it('should have all military planes with bomber type', () => {
         let airport = new Airport(planes);
-        let bomberMilitaryPlanes  = airport.getBomberMilitaryPlanes ();
-        let flag = false;
+        let bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
+        let flag = true;
         for (let militaryPlane of bomberMilitaryPlanes) {
-            if (militaryPlane.getMilitaryType() === MilitaryType.BOMBER) {
-                flag = true;
-            }
-            else{
-                assert.fail("Test failed!");
+            if (militaryPlane.getMilitaryType() !== MilitaryType.BOMBER) {
+                flag = false;
+                break;
             }
         }
-
-        // if not failed;
+        assert.isTrue(flag);
     })
 
-    it('should check that experimentsl planes has classification level higher than unclassified', () => {
+    it('should check that experimental planes has classification level higher than unclassified', () => {
         let airport = new Airport(planes);
-        let bomberMilitaryPlanes  = airport.getExperimentalPlanes ();
-        let hasUnclassifiedPlanes  = false;
-        for (let experimentalPlane  of bomberMilitaryPlanes) {
+        let bomberMilitaryPlanes = airport.getExperimentalPlanes();
+        let hasUnclassifiedPlanes = false;
+        for (let experimentalPlane of bomberMilitaryPlanes) {
             if (experimentalPlane.classificationLevel === ClassificationLevel.UNCLASSIFIED) {
                 hasUnclassifiedPlanes = true;
-
+                break;
+            }
         }
         assert.isFalse(hasUnclassifiedPlanes);
-
-        }
     });
 
 });
-
-
-
