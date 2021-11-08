@@ -34,14 +34,14 @@ describe('My Test', () => {
     it('should have military Planes with transport type', () => {
         let airport = new Airport(planes);
         let transportMilitaryPlanes = airport.getTransportMilitaryPlanes();
-        let flag = false;
+        let hasMilitaryPlaneWithtransportType = false;
         for (let militaryPlane of transportMilitaryPlanes) {
             if (militaryPlane.getMilitaryType() === MilitaryType.TRANSPORT) {
-                flag = true;
+                hasMilitaryPlaneWithtransportType = true;
                 break;
             }
         }
-        assert.isTrue(flag);
+        assert.isTrue(hasMilitaryPlaneWithtransportType);
     });
 
     it('should check passenger plane with max capacity', () => {
@@ -69,14 +69,16 @@ describe('My Test', () => {
     it('should have all military planes with bomber type', () => {
         let airport = new Airport(planes);
         let bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
-        let flag = true;
+        let allMilitaryPlanesWithBomberType = false;
         for (let militaryPlane of bomberMilitaryPlanes) {
-            if (militaryPlane.getMilitaryType() !== MilitaryType.BOMBER) {
-                flag = false;
+            if (militaryPlane.getMilitaryType() === MilitaryType.BOMBER) {
+                allMilitaryPlanesWithBomberType = true;
+            } else {
+                allMilitaryPlanesWithBomberType = false;
                 break;
             }
         }
-        assert.isTrue(flag);
+        assert.isTrue(allMilitaryPlanesWithBomberType);
     })
 
     it('should check that experimental planes has classification level higher than unclassified', () => {
