@@ -11,17 +11,17 @@ class Plane {
         return this.model;
     }
 
-    getMaxSpeed() {
+    getMS() {
         return this.maxSpeed;
     }
 
-    GetMaxFlightDistance() {
+    Get_Max_Flight_Distance() {
         return this.maxFlightDistance;
     }
 
     getMinLoadCapacity() {
-        let result = this.maxLoadCapacity;
-        return result;
+     let result = this.maxLoadCapacity;
+     return result;
     }
 }
 
