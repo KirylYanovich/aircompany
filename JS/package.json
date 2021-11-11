@@ -16,7 +16,10 @@
     "npm": ">=3.10.8"
   },
   "devDependencies": {
-    "mocha": "^6.2.0",
-    "chai": "^4.2.0"
+    "chai": "^4.3.4",
+    "mocha": "^6.2.3"
+  },
+  "dependencies": {
+    "eslint": "^8.2.0"
   }
 }
