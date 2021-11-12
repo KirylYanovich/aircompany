@@ -23,8 +23,8 @@ function showPlanes() {
         new MilitaryPlane('F-15', 1500, 12000, 10000, militaryType.fighter),
         new MilitaryPlane('F-22', 1550, 13000, 11000, militaryType.fighter),
         new MilitaryPlane('C-130 Hercules', 650, 5000, 110000, militaryType.transport),
-        new ExperimentalPlane("Bell X-14", 277, 482, 500, experimentalTypes.high_altitude, classificationLevel.secret),
-        new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, experimentalTypes.vtol, classificationLevel.top_secret)
+        new ExperimentalPlane('Bell X-14', 277, 482, 500, experimentalTypes.high_altitude, classificationLevel.secret),
+        new ExperimentalPlane('Ryan X-13 Vertijet', 560, 307, 500, experimentalTypes.vtol, classificationLevel.top_secret)
     ];
 
     let airport = new Airport(planes);
@@ -33,6 +33,6 @@ function showPlanes() {
     console.log(`Military airport sorted by max flight distance: ${Airport.getPlanesString(militaryAirport.sortByMaxFlightDistance())}`);
     console.log(`Passenger airport sorted by max speed: ${Airport.getPlanesString(passengerAirport.sortByMaxSpeed())}`);
     console.log(`Plane with max passenger capacity: ${Airport.getPlanesString(passengerAirport.getPassengerPlaneWithMaxPassengersCapacity())}`);
-};
+}
 
 showPlanes();

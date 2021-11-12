@@ -63,3 +63,4 @@ typings/
 
 # Dependencies
 package-lock.json
+.eslintrc.json
