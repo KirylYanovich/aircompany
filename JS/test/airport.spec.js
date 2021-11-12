@@ -25,8 +25,8 @@ describe('My Test', () => {
         new MilitaryPlane('F-15', 1500, 12000, 10000, militaryType.fighter),
         new MilitaryPlane('F-22', 1550, 13000, 11000, militaryType.fighter),
         new MilitaryPlane('C-130 Hercules', 650, 5000, 110000, militaryType.transport),
-        new ExperimentalPlane("Bell X-14", 277, 482, 500, experimentalTypes.high_altitude, classificationLevel.secret),
-        new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, experimentalTypes.vtol, classificationLevel.top_secret)
+        new ExperimentalPlane('Bell X-14', 277, 482, 500, experimentalTypes.high_altitude, classificationLevel.secret),
+        new ExperimentalPlane('Ryan X-13 Vertijet', 560, 307, 500, experimentalTypes.vtol, classificationLevel.top_secret)
     ];
     const planeWithMaxPassengerCapacity = new PassengerPlane('Boeing-747', 980, 16100, 70500, 242);
 
@@ -48,13 +48,13 @@ describe('My Test', () => {
         let planesSortedByMaxLoadCapacity = airport.sortByMaxLoadCapacity().getPlanes();
         assert.isTrue(planesSortedByMaxLoadCapacity.every((current, i, {
             [i + 1]: next
-        }) => !next || current.maxLoadCapacity <= next.maxLoadCapacity))
-    })
+        }) => !next || current.maxLoadCapacity <= next.maxLoadCapacity));
+    });
 
     it('should have at least one bomber in millitary planes', () => {
         let airport = new Airport(planes);
         assert.isNotEmpty(airport.getBomberMilitaryPlanes());
-    })
+    });
 
     it('should check that experimental planes do not have unclassified classification level', () => {
         let airport = new Airport(planes);

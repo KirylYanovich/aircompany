@@ -9,4 +9,4 @@ class ExperimentalPlane extends Plane {
     }
 }
 
-module.exports = ExperimentalPlane
+module.exports = ExperimentalPlane;
